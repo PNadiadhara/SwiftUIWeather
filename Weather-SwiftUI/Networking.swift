@@ -7,8 +7,8 @@
 
 import Foundation
 
-func fetch() {
-  guard let url = URL(string: "URL") else {
+func fetchWeatherData() {
+  guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}") else {
     return
   }
   let task = URLSession.shared.dataTask(with: url) { data, _,
