@@ -11,6 +11,7 @@
 		BF06FCD627F2418F00EE136D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06FCD527F2418F00EE136D /* ContentView.swift */; };
 		BF06FCD827F2419000EE136D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF06FCD727F2419000EE136D /* Assets.xcassets */; };
 		BF06FCDB27F2419000EE136D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF06FCDA27F2419000EE136D /* Preview Assets.xcassets */; };
+		BF06FCE227F38A9300EE136D /* WeatherButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF06FCE127F38A9300EE136D /* WeatherButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		BF06FCD527F2418F00EE136D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BF06FCD727F2419000EE136D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF06FCDA27F2419000EE136D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BF06FCE127F38A9300EE136D /* WeatherButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				BF06FCD327F2418F00EE136D /* Weather_SwiftUIApp.swift */,
+				BF06FCE127F38A9300EE136D /* WeatherButtonView.swift */,
 				BF06FCD527F2418F00EE136D /* ContentView.swift */,
 				BF06FCD727F2419000EE136D /* Assets.xcassets */,
 				BF06FCD927F2419000EE136D /* Preview Content */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF06FCD627F2418F00EE136D /* ContentView.swift in Sources */,
+				BF06FCE227F38A9300EE136D /* WeatherButtonView.swift in Sources */,
 				BF06FCD427F2418F00EE136D /* Weather_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
