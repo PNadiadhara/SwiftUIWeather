@@ -72,9 +72,11 @@ struct WeatherDayView: View {
       Text(dayOfWeek)
         .font(.system(size: 16, weight: .medium, design: .default))
         .foregroundColor(.white)
+      // SFsymbols 3 updatelets you play with symbol colors
       Image(systemName: imageName)
-        .renderingMode(.original)
+        .symbolRenderingMode(.palette)
         .resizable()
+        .foregroundStyle(.pink, .orange, .green)
         .aspectRatio(contentMode: .fit)
         .frame(width: 40, height: 40)
         .foregroundColor(.white)
@@ -86,7 +88,7 @@ struct WeatherDayView: View {
 }
 
 struct BackgroundView: View {
-  
+  // Binding not neccesary here as the data doesnt get changed by this BackgroundView
   @Binding var isNight: Bool
   
   var body: some View {
@@ -95,7 +97,7 @@ struct BackgroundView: View {
                     Gradient(colors: [ isNight ? .black : .blue, isNight ? .gray : Color("lightBlue")]),
                    startPoint: .topLeading,
                    endPoint: .bottomTrailing)
-      .edgesIgnoringSafeArea(.all)
+      .ignoresSafeArea()
   }
 }
 
