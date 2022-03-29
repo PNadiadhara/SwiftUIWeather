@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+  // State "saves" data while rest of struct is destroyed and recreated
+  @State private var isNight = false
+  
   var body: some View {
     ZStack {
-      BackgroundView(gradientTop: Color.blue, gradientBottom: Color("lightBlue"))
+      // $ shows that the variable is binding
+      BackgroundView( isNight: $isNight)
       VStack {
         CityTextView(city: "Cupertino, CA")
         
-        MainWeatherStatusView(imageName: "cloud.sun.fill", temperature: 76)
+        MainWeatherStatusView(imageName: isNight ? "moon.stars.fill" : "cloud.sun.fill", temperature: 76)
         
         Spacer()
         HStack(spacing: 30) {
@@ -38,7 +42,7 @@ struct ContentView: View {
         Spacer()
         
         Button {
-          // action
+          isNight.toggle()
           print("Pick location button tapped")
         } label : {
           //button asthetics
@@ -83,12 +87,13 @@ struct WeatherDayView: View {
 
 struct BackgroundView: View {
   
-  var gradientTop: Color
-  var gradientBottom : Color
+  @Binding var isNight: Bool
   
   var body: some View {
+    
     LinearGradient(gradient:
-                    Gradient(colors: [gradientTop, gradientBottom]), startPoint: .topLeading,
+                    Gradient(colors: [ isNight ? .black : .blue, isNight ? .gray : Color("lightBlue")]),
+                   startPoint: .topLeading,
                    endPoint: .bottomTrailing)
       .edgesIgnoringSafeArea(.all)
   }
