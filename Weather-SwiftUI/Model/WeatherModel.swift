@@ -8,15 +8,17 @@
 import Foundation
 
 struct WeatherData : Codable {
-  var lat : Int
-  var lon : Int
+  var lat : Double
+  var lon : Double
   var current : Current
   var hourly : Hourly
   var daily : Daily
 }
 
 struct Current : Codable {
-  var temp : Int // looks to be in kelvin
+  var temp : Double // looks to be in kelvin
+  var sunrise : Int // all time given in Unix, UTC format
+  var sunset : Int
   var weather : Weather
 }
 
@@ -26,9 +28,16 @@ struct Weather : Codable {
 }
 
 struct Hourly : Codable {
-  
+  var dt : Double
+  var temp : Double
 }
 
 struct Daily : Codable {
-  
+  var temp : Temp
+  var weather : Weather
+}
+
+struct Temp : Codable {
+  var min : Double
+  var max : Double
 }
