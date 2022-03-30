@@ -12,45 +12,36 @@ struct ContentView: View {
   @State private var isNight = false
   
   var body: some View {
+    
     ZStack {
       // $ shows that the variable is binding
       BackgroundView( isNight: $isNight)
-      VStack {
-        CityTextView(city: "Cupertino, CA")
-        
-        MainWeatherStatusView(imageName: isNight ? "moon.stars.fill" : "cloud.sun.fill", temperature: 76)
-        
-        Spacer()
-        HStack(spacing: 30) {
-          WeatherDayView(dayOfWeek: "TUE",
-                         imageName: "cloud.sun.fill",
-                         temperature: 70)
-          WeatherDayView(dayOfWeek: "WED",
-                         imageName: "sun.max.fill",
-                         temperature: 76)
-          WeatherDayView(dayOfWeek: "THU",
-                         imageName: "wind.snow",
-                         temperature: 55)
-          WeatherDayView(dayOfWeek: "FRI",
-                         imageName: "sunset.fill",
-                         temperature: 60)
-          WeatherDayView(dayOfWeek: "SAT",
-                         imageName: "cloud.rain.fill",
-                         temperature: 25)
-        }
-        
-        Spacer()
-        
-        Button {
-          isNight.toggle()
-          print("Pick location button tapped")
-        } label : {
-          //button asthetics
-          WeatherButton(title: "Pick Location", textColor: .blue, backgroundColor: .white)
+      ScrollView {
+        VStack {
+          CityTextView(city: "Cupertino, CA")
           
+          MainWeatherStatusView(imageName: isNight ? "moon.stars.fill" : "cloud.sun.fill", temperature: 76)
+          
+          Spacer()
+          WeekDayWeatherStatusView()
+          
+          
+          
+          
+          Spacer()
+          
+          Button {
+            isNight.toggle()
+            print("Pick location button tapped")
+          } label : {
+            //button asthetics
+            WeatherButton(title: "Pick Location", textColor: .blue, backgroundColor: .white)
+            
+          }
+          Spacer()
         }
-        Spacer()
       }
+      
     }
   }
 }
@@ -130,4 +121,48 @@ struct MainWeatherStatusView: View {
   }
 }
 
+struct WeekDayWeatherStatusView: View {
+  var body: some View {
+    ZStack {
+      WeekDayWeatherStatusViewBackground()
+      
+      ScrollView (.horizontal, showsIndicators: false) {
+        HStack(spacing: 30) {
+          ForEach(0..<10) {index in
+            WeatherDayView(dayOfWeek: "ForEach",
+                           imageName: "cloud.sun.fill",
+                           temperature: 70)
+          }
+          WeatherDayView(dayOfWeek: "TUE",
+                         imageName: "cloud.sun.fill",
+                         temperature: 70)
+          WeatherDayView(dayOfWeek: "WED",
+                         imageName: "sun.max.fill",
+                         temperature: 76)
+          WeatherDayView(dayOfWeek: "THU",
+                         imageName: "wind.snow",
+                         temperature: 55)
+          WeatherDayView(dayOfWeek: "FRI",
+                         imageName: "sunset.fill",
+                         temperature: 60)
+          WeatherDayView(dayOfWeek: "SAT",
+                         imageName: "cloud.rain.fill",
+                         temperature: 25)
+        }
+        .padding()
+      }
+    }
+  }
+}
 
+struct WeekDayWeatherStatusViewBackground : View {
+  var body: some View {
+    Color(.secondarySystemBackground)
+      .frame(height: 150)
+      .cornerRadius(12)
+      .padding(.horizontal)
+      .opacity(0.3t)
+  }
+  
+  
+}
