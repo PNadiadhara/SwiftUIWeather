@@ -124,7 +124,7 @@ struct MainWeatherStatusView: View {
 struct WeekDayWeatherStatusView: View {
   var body: some View {
     ZStack {
-      WeekDayWeatherStatusViewBackground()
+      
       
       ScrollView (.horizontal, showsIndicators: false) {
         HStack(spacing: 30) {
@@ -151,18 +151,15 @@ struct WeekDayWeatherStatusView: View {
         }
         .padding()
       }
+      .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.gray.opacity(0.3)))
+      .padding()
+      
+      
     }
   }
 }
 
-struct WeekDayWeatherStatusViewBackground : View {
-  var body: some View {
-    Color(.secondarySystemBackground)
-      .frame(height: 150)
-      .cornerRadius(12)
-      .padding(.horizontal)
-      .opacity(0.3t)
-  }
+
   
   
-}
+
