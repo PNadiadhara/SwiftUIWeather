@@ -80,9 +80,28 @@ struct WeatherDayView: View {
 }
 
 struct WeatherWeekView : View {
+  var dayOfWeek : String
+  var imageName : String
+  var temperature : Int // Might be double
+  
   var body: some View {
-    var dayOfWeek : String
-    
+    HStack {
+      Text(dayOfWeek)
+        .font(.system(size: 16, weight: .medium, design: .default))
+        .foregroundColor(.white)
+      
+      Image(systemName: imageName) // will be updated for lottie
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .frame(height: 20)
+        .foregroundColor(.white)
+      
+      Text("\(temperature)")
+        .font(.system(size: 14,weight: .medium))
+        .foregroundColor(.white)
+      
+      
+    }
     
     
   }
