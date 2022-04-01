@@ -52,6 +52,7 @@ struct ContentView_Previews: PreviewProvider {
   }
 }
 
+// change to reflect hourly
 struct WeatherDayView: View {
   
   var dayOfWeek : String
@@ -75,6 +76,15 @@ struct WeatherDayView: View {
         .font(.system(size: 28,weight: .medium))
         .foregroundColor(.white)
     }
+  }
+}
+
+struct WeatherWeekView : View {
+  var body: some View {
+    var dayOfWeek : String
+    
+    
+    
   }
 }
 

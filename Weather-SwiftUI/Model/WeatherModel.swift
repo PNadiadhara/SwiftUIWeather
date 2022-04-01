@@ -24,12 +24,14 @@ struct Current : Codable {
 
 struct Weather : Codable {
   var main : String
+  var id : String
   var description : String
 }
 
 struct Hourly : Codable {
   var dt : Double
   var temp : Double
+  var weather : Weather
 }
 
 struct Daily : Codable {
